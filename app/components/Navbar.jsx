@@ -17,11 +17,12 @@ export default function Navbar({ isSleeping, byeClick, locationClick, aboutClick
                 list={
                     <List width={'200px'} className='flex'>
                         <div className='bg-[#808080] flex flex-col justify-center px-3 items-center text-lg pointer-events-none'>
+                            <div>S</div>
+                            <div>L</div>
                             <div>E</div>
                             <div>D</div>
-                            <div>V</div>
-                            <div>I</div>
-                            <div>N</div>
+                            <div>D</div>
+                            <div>E</div>
                         </div>
                         <div className='w-full'>
                             {navItems.map((item, idx) => {

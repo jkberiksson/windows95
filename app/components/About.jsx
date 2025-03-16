@@ -10,7 +10,7 @@ export default function About({ setShowAbout }) {
             title='About'
             titleBarOptions={[<TitleBar.Close key='close' onClick={() => setShowAbout(false)} />]}>
             <p className='px-1 py-[2px] uppercase'>Discover my story</p>
-            <Frame h='100%' bgColor='$material' boxShadow='$out' padding='$4'>
+            <Frame h='92%' bgColor='$material' boxShadow='$out' padding='$4'>
                 <Frame h='100%' bgColor='white' boxShadow='$in' padding='$8' className='overflow-y-scroll custom-scrollbar'>
                     <h1 className='font-bold'>EDVIN GOTTFREDSSON a.k.a SLEDDE</h1>
                     <img

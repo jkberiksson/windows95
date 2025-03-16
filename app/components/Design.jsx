@@ -11,7 +11,7 @@ export default function Design({ setShowDesign }) {
             title='Design'
             titleBarOptions={[<TitleBar.Close key='close' onClick={() => setShowDesign(false)} />]}>
             <p className='px-1 py-[2px] uppercase'>Discover my design</p>
-            <Frame h='100%' bgColor='$material' boxShadow='$out' padding='$4'>
+            <Frame h='92%' bgColor='$material' boxShadow='$out' padding='$4'>
                 <Frame h='100%' bgColor='white' boxShadow='$in' padding='$8' className='overflow-y-scroll custom-scrollbar'>
                     <InstagramEmbed />
                     <img
