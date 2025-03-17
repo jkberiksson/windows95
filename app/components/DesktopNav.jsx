@@ -12,7 +12,7 @@ export default function DesktopNav({ openMusicPlayer, openVideoPlayer, openMsPai
     ];
 
     return (
-        <nav className='absolute left-2 top-2 p-2 grid grid-cols-2 gap-4'>
+        <nav className='absolute left-2 top-2 p-2 grid grid-cols-2 gap-y-4 md:gap-x-4'>
             {items.map(({ onClick, href, img, label }, index) =>
                 href ? (
                     <Link key={index} href={href}>
