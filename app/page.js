@@ -11,6 +11,7 @@ import Design from './components/Design';
 import VideoPlayer from './components/VideoPlayer';
 import DesktopNav from './components/DesktopNav';
 import Giphs from './components/Giphs';
+import ChangeBgColor from './components/ChangeBgColor';
 
 const MusicPlayer = dynamic(() => import('./components/MusicPlayer'), {
     ssr: false, // Ensures it only renders on the client side
@@ -25,6 +26,7 @@ export default function Home() {
     const [showDesign, setShowDesign] = useState(false);
     const [showMusicPlayer, setShowMusicPlayer] = useState(false);
     const [showVideoPlayer, setShowVideoPlayer] = useState(false);
+    const [bgColor, setBgColor] = useState('#C6A3B5');
 
     const byeClick = () => {
         if (isSleeping) {
@@ -46,9 +48,17 @@ export default function Home() {
     const designClick = () => setShowDesign(true);
 
     return (
-        <div className='bg-[#C6A3B5] h-[100dvh]'>
+        <div style={{ backgroundColor: bgColor }} className='h-[100dvh]'>
             {/* <Giphs /> */}
-            <DesktopNav openMusicPlayer={openMusicPlayer} openVideoPlayer={openVideoPlayer} closeMusicPlayer={closeMusicPlayer} />
+            <DesktopNav
+                openMusicPlayer={openMusicPlayer}
+                openVideoPlayer={openVideoPlayer}
+                closeMusicPlayer={closeMusicPlayer}
+                openMsPaint={paintClick}
+                openAbout={aboutClick}
+                openLocation={locationClick}
+                openDesign={designClick}
+            />
             <div
                 ref={container}
                 className='h-full w-full absolute left-0 top-0 bg-black opacity-0 transition-all duration-1500 ease-in-out pointer-events-none z-10'></div>
@@ -59,9 +69,11 @@ export default function Home() {
 
             {showVideoPlayer && <VideoPlayer closeVideoPlayer={closeVideoPlayer} />}
             {showMusicPlayer && <MusicPlayer closeMusicPlayer={closeMusicPlayer} />}
-
+            <ChangeBgColor setBgColor={setBgColor} />
+            <Giphs />
             <Navbar
                 isSleeping={isSleeping}
+                z
                 byeClick={byeClick}
                 locationClick={locationClick}
                 aboutClick={aboutClick}
