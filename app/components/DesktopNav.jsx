@@ -29,7 +29,7 @@ export default function DesktopNav({ openMusicPlayer, openVideoPlayer, openMsPai
                         key={index}
                         onClick={onClick}
                         className='cursor-pointer flex flex-col items-center justify-between text-center gap-1 w-20 hover:scale-110'>
-                        <img className='w-8 md:w-12' src={img} />
+                        <img className='w-8 md:w-12 flex-1 object-contain' src={img} />
                         <h1 className='font-bold'>{label}</h1>
                     </div>
                 )
