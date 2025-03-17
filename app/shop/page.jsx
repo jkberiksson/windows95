@@ -3,10 +3,17 @@
 import { TitleBar } from '@react95/core';
 import { Drvspace7 } from '@react95/icons';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export default function Shop() {
+    useEffect(() => {
+        const container = document.getElementById('webamp');
+        if (container) {
+            container.remove();
+        }
+    }, []);
     return (
-        <div className='h-screen flex flex-col'>
+        <div className='min-h-[100dvh] flex flex-col'>
             <TitleBar icon={<Drvspace7 variant='32x32_4' />} title='Shop'>
                 <TitleBar.Option>
                     <Link href='/'>
