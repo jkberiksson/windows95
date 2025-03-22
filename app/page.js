@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import dynamic from 'next/dynamic'; // Dynamic import for client-side rendering
+import dynamic from 'next/dynamic';
 
 import Navbar from './components/Navbar';
 import MsPaint from './components/MsPaint';
@@ -14,7 +14,7 @@ import Giphs from './components/Giphs';
 import ChangeBgColor from './components/ChangeBgColor';
 
 const MusicPlayer = dynamic(() => import('./components/MusicPlayer'), {
-    ssr: false, // Ensures it only renders on the client side
+    ssr: false,
 });
 
 export default function Home() {
