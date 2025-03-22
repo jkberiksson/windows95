@@ -52,9 +52,7 @@ function ShopItems({ items }) {
                         <div className='space-y-2'>
                             <h2>{item.name}</h2>
                             <p className='font-medium'>${item.price}</p>
-                            {item.stock === 0 && (
-                                <div className=' absolute top-0 mb-2 right-0 px-1 py-[2px] bg-white text-black inline-block'>Sold out</div>
-                            )}
+                            {item.stock === 0 && <div className='bg-white text-black py-1 px-2 mt-2 inline-block'>Sold out</div>}
                         </div>
                     </div>
                 </Link>

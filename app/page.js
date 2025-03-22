@@ -10,7 +10,6 @@ import Location from './components/Location';
 import Design from './components/Design';
 import VideoPlayer from './components/VideoPlayer';
 import DesktopNav from './components/DesktopNav';
-import Giphs from './components/Giphs';
 import ChangeBgColor from './components/ChangeBgColor';
 
 const MusicPlayer = dynamic(() => import('./components/MusicPlayer'), {
@@ -49,7 +48,6 @@ export default function Home() {
 
     return (
         <div style={{ backgroundColor: bgColor }} className='h-[100dvh]'>
-            {/* <Giphs /> */}
             <DesktopNav
                 openMusicPlayer={openMusicPlayer}
                 openVideoPlayer={openVideoPlayer}
@@ -70,7 +68,7 @@ export default function Home() {
             {showVideoPlayer && <VideoPlayer closeVideoPlayer={closeVideoPlayer} />}
             {showMusicPlayer && <MusicPlayer closeMusicPlayer={closeMusicPlayer} />}
             <ChangeBgColor setBgColor={setBgColor} />
-            <Giphs />
+
             <Navbar
                 isSleeping={isSleeping}
                 z

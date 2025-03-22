@@ -17,15 +17,9 @@ export default function Layout({ children }) {
     return (
         <div className='min-h-screen bg-black text-white font-poppins'>
             <div className='max-w-7xl mx-auto py-2 px-6'>
-                <header className='flex justify-between items-center'>
+                <header className='flex justify-between items-center py-6'>
                     <Link href='/shop'>
-                        <div className='w-24 h-24'>
-                            <img
-                                src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWNjNWRkbG9yemw3a3gxczdwYjBoZnZmejFiMHJsbzc0bmcwMm9nbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gL2P9tWLMzlG7HjTJM/giphy.gif'
-                                alt='Retro Shop'
-                                className='w-full h-full object-cover'
-                            />
-                        </div>
+                        <div className='uppercase text-3xl'>Tekr</div>
                     </Link>
                     <Link href='/shop/cart'>
                         <div className='relative'>
