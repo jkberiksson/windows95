@@ -42,11 +42,11 @@ function ShopItems({ items }) {
                     <div
                         key={item.id}
                         className='flex flex-col gap-4 items-center text-center cursor-pointer relative group transition-transform duration-300'>
-                        <div className='h-[250px] overflow-hidden'>
+                        <div className='h-[250px] w-[60%] overflow-hidden'>
                             <img
                                 src={item.image}
                                 alt={item.name}
-                                className='w-full h-[70%] object-contain transition-transform duration-300 group-hover:scale-110'
+                                className='h-full w-full object-contain transition-transform duration-300 group-hover:scale-110'
                             />
                         </div>
                         <div className='space-y-2'>
@@ -82,26 +82,18 @@ export const dummyItems = [
     },
     {
         id: 3,
-        name: 'Gold Ring',
+        name: 'Gold necklace',
         description: 'Old-school CRT monitor for a retro setup.',
         price: 99.99,
         stock: 0,
-        image: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjhjc3F2anVkMW1zbWNnZHdseWJobDEwZTl1eXYyMmlsdzR3MmhmMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vJkDBggmy5euqIQBCx/giphy.gif',
+        image: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExODZrcGV6dXVrYWFyZ3VlZngzNHdmMTdlaHg0NDZpbXh5M2QzemdnbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3ohhwnxcbcIkdQW5Wg/giphy.gif',
     },
     {
         id: 4,
-        name: 'Jeans',
+        name: 'Wrist Band',
         description: 'Pack of 10 brand new 3.5-inch floppy disks.',
         price: 14.99,
-        stock: 0,
-        image: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHFkeHg1cDlwangwYnBieTN0bDJsdmdpaDdkbndiZTIyMTQ0MWFwMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/St3213tKai3M0AxlGR/giphy.gif',
-    },
-    {
-        id: 5,
-        name: 'Retro Mouse',
-        description: 'A classic ball mouse for nostalgia lovers',
-        price: 19.99,
-        stock: 0,
-        image: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWNjNWRkbG9yemw3a3gxczdwYjBoZnZmejFiMHJsbzc0bmcwMm9nbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gL2P9tWLMzlG7HjTJM/giphy.gif',
+        stock: 1,
+        image: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzJuMnExMTF2dmg5cGE1cjVrZm1vNm52dGVxbzRqcWdwOW1ndzZ4MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/tdxgwtMidhVmSiwrJ0/giphy.gif',
     },
 ];
