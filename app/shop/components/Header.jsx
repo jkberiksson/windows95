@@ -19,13 +19,13 @@ export default function Header() {
                 <Link href='/shop/cart'>
                     <div className='relative'>
                         <HiOutlineShoppingCart size={26} className='cursor-pointer' />
-                        <div className='bg-white text-black text-xs w-5 h-5 flex items-center justify-center rounded-full absolute -top-2 -right-2'>
+                        <div className='bg-white text-black w-5 h-5 flex items-center justify-center rounded-full absolute -top-2 -right-2'>
                             {totalItemsInCart}
                         </div>
                     </div>
                 </Link>
             </div>
-            <section className='mb-18 flex items-center justify-center gap-4 flex-wrap text-xs'>
+            <section className='mb-18 flex items-center justify-center gap-4 flex-wrap'>
                 <Link href='/shop' className='cursor-pointer hover:underline'>
                     [All products]
                 </Link>

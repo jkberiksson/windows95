@@ -24,7 +24,7 @@ export default function ProductPage() {
         }
         router.push('/shop');
         addToCart(product);
-        toast.success(`${product.name} added to cart!`);
+        toast.dark(`${product.name} added to cart!`);
     };
 
     if (loading) {
@@ -44,8 +44,8 @@ export default function ProductPage() {
             </div>
 
             {/* Product Details */}
-            <div className='text-xs lg:text-sm font-thin mt-12 lg:mt-0 lg:w-[300px] uppercase'>
-                <div className='text-2xl font-thin mb-1'>{product.name}</div>
+            <div className='lg:text-sm mt-12 lg:mt-0 lg:w-[300px] uppercase'>
+                <div className='text-2xl mb-1'>{product.name}</div>
                 <div className='text-sm font-semibold mb-4'>${product.price.toFixed(2)}</div>
 
                 {/* Description */}

@@ -19,7 +19,7 @@ export default function ShopLayout({ children }) {
     return (
         <ShopContextProvider>
             <CartContextProvider>
-                <div className='min-h-screen bg-black text-white font-inconsolata'>
+                <div className='min-h-[100dvh] bg-black text-white font-inconsolata text-xs font-thin'>
                     <div className='max-w-7xl mx-auto py-2 px-6'>
                         <Header />
                         <div className='my-12'>{children}</div>
