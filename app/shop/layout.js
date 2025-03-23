@@ -1,12 +1,14 @@
 'use client';
 
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { HiOutlineShoppingCart } from 'react-icons/hi';
+import { useEffect } from 'react';
 
-export default function Layout({ children }) {
-    const [amountInCart, setAmountInCart] = useState(0);
+import Header from './components/Header';
+import CartContextProvider from '../context/CartContext';
+import { ToastContainer } from 'react-toastify';
+import Toast from './components/Toast';
+import ShopContextProvider from '../context/ShopContext';
 
+export default function ShopLayout({ children }) {
     useEffect(() => {
         const container = document.getElementById('webamp');
         if (container) {
@@ -15,23 +17,16 @@ export default function Layout({ children }) {
     }, []);
 
     return (
-        <div className='min-h-screen bg-black text-white font-poppins'>
-            <div className='max-w-7xl mx-auto py-2 px-6'>
-                <header className='flex justify-between items-center py-6'>
-                    <Link href='/shop'>
-                        <div className='uppercase text-3xl'>Tekr</div>
-                    </Link>
-                    <Link href='/shop/cart'>
-                        <div className='relative'>
-                            <HiOutlineShoppingCart size={26} className='cursor-pointer' />
-                            <div className='bg-white text-black text-xs w-5 h-5 flex items-center justify-center rounded-full absolute -top-2 -right-2'>
-                                {amountInCart}
-                            </div>
-                        </div>
-                    </Link>
-                </header>
-                <div className='my-12'>{children}</div>
-            </div>
-        </div>
+        <ShopContextProvider>
+            <CartContextProvider>
+                <div className='min-h-screen bg-black text-white font-inconsolata'>
+                    <div className='max-w-7xl mx-auto py-2 px-6'>
+                        <Header />
+                        <div className='my-12'>{children}</div>
+                        <Toast ToastContainer={ToastContainer} />
+                    </div>
+                </div>
+            </CartContextProvider>
+        </ShopContextProvider>
     );
 }
