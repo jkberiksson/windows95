@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useCart } from '@/app/context/CartContext';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
+import { useEffect } from 'react';
 
 export default function Header() {
     const { cart } = useCart();
@@ -11,6 +12,13 @@ export default function Header() {
     cart.map((product) => {
         return (totalItemsInCart += product.quantity);
     });
+
+    useEffect(() => {
+        const container = document.getElementById('webamp');
+        if (container) {
+            container.remove();
+        }
+    }, []);
 
     return (
         <header>
