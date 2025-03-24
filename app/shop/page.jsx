@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export default async function page() {
-    const res = await fetch('http://localhost:3001/products');
+    const res = await fetch('https://tekr-backend.vercel.app/products');
     const products = await res.json();
 
     return (

@@ -3,7 +3,7 @@ import AddToCartBtn from '../components/AddToCartBtn';
 export default async function ProductPage({ params }) {
     const { productId } = await params;
 
-    const res = await fetch(`http://localhost:3001/products/${productId}`);
+    const res = await fetch(`https://tekr-backend.vercel.app/products/${productId}`);
     const product = await res.json();
 
     return (
