@@ -1,40 +1,10 @@
-'use client';
+import AddToCartBtn from '../components/AddToCartBtn';
 
-import { useCart } from '@/app/context/CartContext';
-import { toast } from 'react-toastify';
-import { useParams, useRouter } from 'next/navigation';
-import { useShop } from '@/app/context/ShopContext';
-import { CircleLoader } from 'react-spinners';
+export default async function ProductPage({ params }) {
+    const { productId } = await params;
 
-export default function ProductPage() {
-    const { getOneProduct, loading } = useShop();
-    const { cart, addToCart } = useCart();
-    const { productId } = useParams();
-    const product = getOneProduct(parseInt(productId));
-    const router = useRouter();
-
-    const handleAddToCart = () => {
-        const productInCart = cart.find((item) => item.id === product.id);
-
-        if (productInCart) {
-            if (productInCart.quantity >= productInCart.stock) {
-                toast.error(`No more ${product.name} in stock!`);
-                return;
-            }
-        }
-        router.push('/shop');
-        addToCart(product);
-        toast.dark(`${product.name} added to cart!`);
-    };
-
-    if (loading) {
-        return (
-            <div className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center gap-4'>
-                <CircleLoader color='white' />
-                Loading
-            </div>
-        );
-    }
+    const res = await fetch(`http://localhost:3001/products/${productId}`);
+    const product = await res.json();
 
     return (
         <div className='lg:flex justify-center relative'>
@@ -47,6 +17,15 @@ export default function ProductPage() {
             <div className='lg:text-sm mt-12 lg:mt-0 lg:w-[300px] uppercase'>
                 <div className='text-2xl mb-1'>{product.name}</div>
                 <div className='text-sm font-semibold mb-4'>${product.price.toFixed(2)}</div>
+
+                {/* Add to Cart Button */}
+                {product.stock > 0 ? (
+                    <AddToCartBtn product={product} />
+                ) : (
+                    <button disabled className='px-6 py-2 mb-4 bg-gray-400 text-black rounded-md line-through font-semibold block '>
+                        Out of Stock
+                    </button>
+                )}
 
                 {/* Description */}
                 <div className='mb-1 font-semibold'>Description:</div>
@@ -62,21 +41,7 @@ export default function ProductPage() {
 
                 {/* Designer */}
                 <div className='font-semibold mb-1'>Design by:</div>
-                <div className='mb-4'>{product.designer}</div>
-
-                {/* Add to Cart Button */}
-
-                {product.stock > 0 ? (
-                    <button
-                        onClick={handleAddToCart}
-                        className='px-6 py-2 mb-4 bg-white text-black rounded-md cursor-pointer hover:bg-gray-200 font-semibold block'>
-                        Add to Cart
-                    </button>
-                ) : (
-                    <button disabled className='px-6 py-2 mb-4 bg-gray-400 text-black rounded-md line-through font-semibold block '>
-                        Out of Stock
-                    </button>
-                )}
+                <div>{product.designer}</div>
             </div>
         </div>
     );

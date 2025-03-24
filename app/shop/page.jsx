@@ -1,19 +1,8 @@
-'use client';
-
 import Link from 'next/link';
-import { useShop } from '../context/ShopContext';
-import { CircleLoader } from 'react-spinners';
 
-export default function page() {
-    const { products, loading } = useShop();
-
-    if (loading)
-        return (
-            <div className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center gap-4'>
-                <CircleLoader color='white' />
-                Loading
-            </div>
-        );
+export default async function page() {
+    const res = await fetch('http://localhost:3001/products');
+    const products = await res.json();
 
     return (
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-18'>

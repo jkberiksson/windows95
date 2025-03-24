@@ -1,7 +1,8 @@
+'use client';
+
 import Link from 'next/link';
-import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { useCart } from '@/app/context/CartContext';
-import { CircleLoader } from 'react-spinners';
+import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 export default function Header() {
     const { cart } = useCart();
@@ -15,9 +16,7 @@ export default function Header() {
         <header>
             <div className='flex justify-between items-center py-6'>
                 <Link href='/shop'>
-                    <div className='uppercase text-3xl'>
-                        <CircleLoader color='white' />
-                    </div>
+                    <div className='uppercase text-3xl'>tekr</div>
                 </Link>
                 <Link href='/shop/cart'>
                     <div className='relative'>
